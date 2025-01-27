@@ -27,12 +27,12 @@ const OtpVerification = () => {
   return (
     <div className="min-h-screen bg-purple-800 flex flex-col items-center">
       {/* Logo Section */}
-      <div className="flex-1 flex items-center justify-center pt-6 pb-2">
-        <Logo className="h-24 w-auto" />
+      <div className=" flex items-center justify-center pt-6 pb-2">
+        <Logo className="h-40 w-auto" />
       </div>
 
       {/* OTP Section */}
-      <div className="w-full max-w-md bg-white rounded-[40px] p-8 mx-4 mb-8">
+      <div className="w-full max-w-md bg-white rounded-[40px] p-8 mx-4 mb-4">
         <h1 className="text-3xl font-bold text-center text-purple-800 mb-8">
           Enter OTP
         </h1>
@@ -48,8 +48,8 @@ const OtpVerification = () => {
                 value={digit}
                 onChange={(e) => handleChange(index, e.target.value)}
                 className="w-12 h-12 text-center text-2xl font-bold 
-                         border-2 border-purple-800 rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-opacity-50"
+                        border-2 border-purple-800 rounded-lg
+                        focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-opacity-50"
               />
             ))}
           </div>

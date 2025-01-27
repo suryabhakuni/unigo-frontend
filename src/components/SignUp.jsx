@@ -1,12 +1,14 @@
-// import { Link } from 'react-router-dom'
+// import { Link, useNavigate } from 'react-router-dom' // Add useNavigate
 // import Logo from './common/Logo'
 // import Button from './common/Button'
 
 // const SignUp = () => {
+//   const navigate = useNavigate() // Add this hook
+
 //   return (
 //     <div className="min-h-screen bg-purple-800 flex flex-col items-center justify-center p-4">
 //       <div className="flex justify-end">
-//         <Logo className="h-40" />
+//         <Logo className="h-32" />
 //       </div>
 //       <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-8">
 //         <h1 className="text-3xl font-bold text-center text-purple-800 mt-2 mb-14">
@@ -16,15 +18,16 @@
 //         <div className="space-y-6">
 //           <Button 
 //             variant="outline" 
-//             className="w-full py-4 text-xl font-semibold tracking-wide" // Increased text size and added letter spacing
+//             className="w-full py-4 text-xl font-semibold tracking-wide"
 //           >
 //             SignUp for Driver
 //           </Button>
 //           <Button 
 //             variant="outline"
-//             className="w-full py-4 text-xl font-semibold tracking-wide" // Increased text size and added letter spacing
+//             className="w-full py-4 text-xl font-semibold tracking-wide"
+//             onClick={() => navigate('/signup/passenger')} // Add navigation to passenger signup
 //           >
-//             SignUp for Passanger
+//             SignUp for Passenger
 //           </Button>
 //         </div>
 
@@ -40,12 +43,12 @@
 
 // export default SignUp
 
-import { Link, useNavigate } from 'react-router-dom' // Add useNavigate
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from './common/Logo'
 import Button from './common/Button'
 
 const SignUp = () => {
-  const navigate = useNavigate() // Add this hook
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-purple-800 flex flex-col items-center justify-center p-4">
@@ -61,13 +64,14 @@ const SignUp = () => {
           <Button 
             variant="outline" 
             className="w-full py-4 text-xl font-semibold tracking-wide"
+            onClick={() => navigate('/signup/driver')} // Add navigation to driver signup
           >
             SignUp for Driver
           </Button>
           <Button 
             variant="outline"
             className="w-full py-4 text-xl font-semibold tracking-wide"
-            onClick={() => navigate('/signup/passenger')} // Add navigation to passenger signup
+            onClick={() => navigate('/signup/passenger')}
           >
             SignUp for Passenger
           </Button>
