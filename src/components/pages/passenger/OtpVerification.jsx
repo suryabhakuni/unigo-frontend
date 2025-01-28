@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../../common/Logo'
@@ -27,50 +28,55 @@ const OtpVerification = () => {
   return (
     <div className="min-h-screen bg-purple-800 flex flex-col items-center">
       {/* Logo Section */}
-      <div className=" flex items-center justify-center pt-6 pb-2">
-        <Logo className="h-40 w-auto" />
+      <div className="flex justify-center mt-4 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
+        <Logo className="h-20 sm:h-24 md:h-28 w-auto" />
       </div>
 
       {/* OTP Section */}
-      <div className="w-full max-w-md bg-white rounded-[40px] p-8 mx-4 mb-4">
-        <h1 className="text-3xl font-bold text-center text-purple-800 mb-8">
-          Enter OTP
-        </h1>
+      <div className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-md mx-auto px-4 mb-6 sm:mb-8">
+        <div className="bg-white rounded-3xl p-4 sm:p-6 md:p-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-purple-800 mb-6 sm:mb-8">
+            Enter OTP
+          </h1>
 
-        <form onSubmit={handleSubmit}>
-          <div className="flex justify-center space-x-4 mb-8">
-            {otp.map((digit, index) => (
-              <input
-                key={index}
-                id={`otp-${index}`}
-                type="text"
-                maxLength="1"
-                value={digit}
-                onChange={(e) => handleChange(index, e.target.value)}
-                className="w-12 h-12 text-center text-2xl font-bold 
-                        border-2 border-purple-800 rounded-lg
-                        focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-opacity-50"
-              />
-            ))}
+          <form onSubmit={handleSubmit}>
+            <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8">
+              {otp.map((digit, index) => (
+                <input
+                  key={index}
+                  id={`otp-${index}`}
+                  type="text"
+                  maxLength="1"
+                  value={digit}
+                  onChange={(e) => handleChange(index, e.target.value)}
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 
+                           text-center text-lg sm:text-xl md:text-2xl font-bold 
+                           border-2 border-purple-800 rounded-lg
+                           focus:outline-none focus:ring-2 focus:ring-purple-800 
+                           focus:ring-opacity-50"
+                />
+              ))}
+            </div>
+
+            <button 
+              type="submit"
+              className="w-full py-2.5 sm:py-3 text-base sm:text-lg md:text-xl 
+                       font-semibold text-white bg-purple-800 rounded-full 
+                       transition-colors hover:bg-purple-700"
+            >
+              Confirm
+            </button>
+          </form>
+
+          <div className="mt-4 sm:mt-6 text-center">
+            <button 
+              onClick={() => navigate('/signup/passenger')}
+              className="text-purple-800 font-semibold text-sm sm:text-base 
+                       hover:underline"
+            >
+              Back
+            </button>
           </div>
-
-          <button 
-            type="submit"
-            className="w-full py-3 text-xl font-semibold text-white bg-purple-800 
-                     rounded-full transition-colors"
-          >
-            Confirm
-          </button>
-        </form>
-
-        {/* Back Button */}
-        <div className="mt-8 text-center">
-          <button 
-            onClick={() => navigate('/signup/passenger')}
-            className="text-purple-800 font-semibold text-lg"
-          >
-            Back
-          </button>
         </div>
       </div>
     </div>

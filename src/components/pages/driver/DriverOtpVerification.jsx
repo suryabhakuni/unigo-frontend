@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -36,38 +37,60 @@ const DriverOtpVerification = () => {
 
   return (
     <div className="min-h-screen bg-purple-800 flex flex-col items-center">
-      <div className="w-full px-4 py-8">
-        <h1 className="text-4xl text-white text-center font-bold mt-8 mb-12">
+      {/* Logo Section */}
+      
+        <h1 className="text-xl sm:text-2xl md:text-3xl text-white text-center 
+                      font-bold mb-6 sm:mb-8 mt-12">
           UniGo! Ride Sharing
         </h1>
 
-        <div className="bg-white rounded-3xl p-8 max-w-md mx-auto">
-          <h2 className="text-3xl font-bold text-center text-purple-800 mb-12">
+      {/* OTP Section */}
+      <div className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-md mx-auto px-4 mb-6 sm:mb-8">
+        <div className="bg-white rounded-3xl p-4 sm:p-6 md:p-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-purple-800 mb-6 sm:mb-8">
             Enter OTP
           </h2>
 
-          <div className="flex justify-center space-x-4 mb-12">
+          {/* OTP Input Group */}
+          <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8">
             {otp.map((digit, index) => (
               <input
                 key={index}
                 ref={inputRefs[index]}
                 type="text"
+                inputMode="numeric"
                 maxLength={1}
                 value={digit}
                 onChange={(e) => handleChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
-                className="w-12 h-12 text-center text-2xl font-bold border-b-2 border-purple-800
-                          focus:outline-none focus:border-purple-600"
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 
+                         text-center text-lg sm:text-xl md:text-2xl font-bold 
+                         border-2 border-purple-800 rounded-lg
+                         focus:outline-none focus:ring-2 focus:ring-purple-800 
+                         focus:ring-opacity-50"
               />
             ))}
           </div>
 
           <button
             onClick={handleConfirm}
-            className="w-full bg-purple-800 text-white py-3 rounded-full font-semibold"
+            className="w-full py-2.5 sm:py-3 text-base sm:text-lg md:text-xl 
+                     font-semibold text-white bg-purple-800 rounded-full 
+                     transition-colors hover:bg-purple-700"
           >
             Confirm
           </button>
+
+          {/* Back Button */}
+          <div className="mt-4 sm:mt-6 text-center">
+            <button 
+              onClick={() => navigate('/signup/driver')}
+              className="text-purple-800 font-semibold text-sm sm:text-base 
+                       hover:underline"
+            >
+              Back
+            </button>
+          </div>
         </div>
       </div>
     </div>

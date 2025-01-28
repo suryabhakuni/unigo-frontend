@@ -1,101 +1,3 @@
-// import { useState } from 'react'
-// import { Link } from 'react-router-dom'
-// import Logo from './common/Logo'
-// import Button from './common/Button'
-// import Input from './common/Input'
-
-// const SignIn = () => {
-//   const [formData, setFormData] = useState({
-//     emailOrNumber: '',
-//     password: '',
-//     acceptTerms: false
-//   })
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     // Handle form submission
-//   }
-
-//   return (
-//     <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
-//       <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-8">
-//         <div className="flex justify-center mb-8">
-//           <Logo />
-//         </div>
-
-//         <h1 className="text-2xl font-bold text-center text-[#4B0082] mb-8">
-//           Login
-//         </h1>
-
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//           <Input
-//             type="text"
-//             placeholder="Email or Number"
-//             value={formData.emailOrNumber}
-//             onChange={(e) => setFormData({ ...formData, emailOrNumber: e.target.value })}
-//             icon={
-//               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-//                 <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" />
-//               </svg>
-//             }
-//           />
-
-//           <Input
-//             type="password"
-//             placeholder="Password"
-//             value={formData.password}
-//             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-//             icon={
-//               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-//                 <path d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" />
-//               </svg>
-//             }
-//           />
-
-//           <div className="flex items-center">
-//             <input
-//               type="checkbox"
-//               id="terms"
-//               checked={formData.acceptTerms}
-//               onChange={(e) => setFormData({ ...formData, acceptTerms: e.target.checked })}
-//               className="rounded border-gray-300 text-[#4B0082]"
-//             />
-//             <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
-//               Accept all terms and conditions
-//             </label>
-//           </div>
-
-//           <Button type="submit">Submit</Button>
-//         </form>
-
-//         <div className="mt-6 text-center">
-//           <Link to="/forgot-password" className="text-[#4B0082] text-sm">
-//             Forgot Password
-//           </Link>
-//         </div>
-
-//         <div className="mt-8 text-center">
-//           <p className="text-gray-600">Don't have an account?</p>
-//           <Link to="/signup" className="text-[#4B0082] font-semibold">
-//             Sign Up
-//           </Link>
-//         </div>
-
-//         <div className="mt-8 flex justify-center space-x-4">
-//           <button className="w-12 h-12 rounded-full bg-[#4B0082] flex items-center justify-center">
-//             <span className="text-white">f</span>
-//           </button>
-//           <button className="w-12 h-12 rounded-full bg-[#4B0082] flex items-center justify-center">
-//             <span className="text-white">G</span>
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default SignIn
-
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaUser, FaLock, FaFacebookF, FaGoogle } from 'react-icons/fa'
@@ -114,42 +16,48 @@ const SignIn = () => {
   }
 
   return (
-    <div className="min-h-screen bg-purple-800 flex flex-col items-center">
+    <div className="min-h-screen bg-purple-800 flex flex-col items-center p-4 sm:p-6 md:p-8">
       {/* Logo */}
-      <div className="flex justify-center pt-3 mb-1">
-        <Logo className="h-40" />
+      <div className="flex justify-center pt-2 sm:pt-3 md:pt-4 mb-4 sm:mb-6">
+        <Logo className="h-24 sm:h-32 md:h-40 w-auto" />
       </div>
 
       {/* Login Card */}
-      <div className="bg-white w-full max-w-[400px] rounded-3xl p-6">
-        <h1 className="text-3xl text-center font-bold text-purple-800 mb-6">
+      <div className="bg-white w-full max-w-[320px] sm:max-w-[360px] md:max-w-[400px] 
+                    rounded-3xl p-4 sm:p-6 md:p-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl text-center font-bold text-purple-800 
+                     mb-4 sm:mb-6 md:mb-8">
           Login
         </h1>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           <div className="relative">
-            <div className="absolute inset-y-0 left-4 flex items-center">
-              <FaUser className="w-6 h-6 text-purple-800" />
+            <div className="absolute inset-y-0 left-3 sm:left-4 flex items-center">
+              <FaUser className="w-5 h-5 sm:w-6 sm:h-6 text-purple-800" />
             </div>
             <input
               type="text"
               placeholder="Email or Number"
               value={formData.emailOrNumber}
               onChange={(e) => setFormData({ ...formData, emailOrNumber: e.target.value })}
-              className="w-full pl-14 pr-4 py-3 rounded-full border-2 border-purple-800 outline-none text-purple-800 placeholder-purple-800"
+              className="w-full pl-12 sm:pl-14 pr-4 py-2.5 sm:py-3 rounded-full 
+                       border-2 border-purple-800 outline-none text-purple-800 
+                       placeholder-purple-800 text-sm sm:text-base"
             />
           </div>
 
           <div className="relative">
-            <div className="absolute inset-y-0 left-4 flex items-center">
-              <FaLock className="w-6 h-6 text-purple-800" />
+            <div className="absolute inset-y-0 left-3 sm:left-4 flex items-center">
+              <FaLock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-800" />
             </div>
             <input
               type="password"
               placeholder="Password"
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              className="w-full pl-14 pr-4 py-3 rounded-full border-2 border-purple-800 outline-none text-purple-800 placeholder-purple-800"
+              className="w-full pl-12 sm:pl-14 pr-4 py-2.5 sm:py-3 rounded-full 
+                       border-2 border-purple-800 outline-none text-purple-800 
+                       placeholder-purple-800 text-sm sm:text-base"
             />
           </div>
 
@@ -161,38 +69,44 @@ const SignIn = () => {
               onChange={(e) => setFormData({ ...formData, acceptTerms: e.target.checked })}
               className="w-4 h-4 rounded border-2 border-purple-800 text-purple-800"
             />
-            <label htmlFor="terms" className="ml-2 text-sm text-purple-800">
+            <label htmlFor="terms" className="ml-2 text-xs sm:text-sm text-purple-800">
               Accept all terms and conditions
             </label>
           </div>
 
           <button 
             type="submit"
-            className="w-full bg-purple-800 text-white py-3 text-lg rounded-full hover:bg-purple-800/90"
+            className="w-full bg-purple-800 text-white py-2.5 sm:py-3 
+                     text-base sm:text-lg rounded-full 
+                     hover:bg-purple-800/90 transition-colors"
           >
             Submit
           </button>
         </form>
 
-        <div className="mt-3 text-right">
-          <Link to="/forgot-password" className="text-purple-800 text-sm">
+        <div className="mt-2 sm:mt-3 text-right">
+          <Link to="/forgot-password" className="text-purple-800 text-xs sm:text-sm">
             Forgot Password
           </Link>
         </div>
 
-        <div className="mt-6 text-center border-t border-gray-200 pt-6">
-          <p className="text-purple-800 text-sm mb-1"> Don&apos;t have an account?</p>
-          <Link to="/signup" className="text-purple-800 text-lg font-semibold">
+        <div className="mt-4 sm:mt-6 text-center border-t border-gray-200 pt-4 sm:pt-6">
+          <p className="text-purple-800 text-xs sm:text-sm mb-1">
+            Don&apos;t have an account?
+          </p>
+          <Link to="/signup" className="text-purple-800 text-base sm:text-lg font-semibold">
             Sign Up
           </Link>
         </div>
 
-        <div className="mt-6 flex justify-center space-x-4">
-          <button className="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center">
-            <FaFacebookF className="text-white text-lg" />
+        <div className="mt-4 sm:mt-6 flex justify-center space-x-4">
+          <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-800 
+                         flex items-center justify-center transition-transform hover:scale-105">
+            <FaFacebookF className="text-white text-base sm:text-lg" />
           </button>
-          <button className="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center">
-            <FaGoogle className="text-white text-lg" />
+          <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-800 
+                         flex items-center justify-center transition-transform hover:scale-105">
+            <FaGoogle className="text-white text-base sm:text-lg" />
           </button>
         </div>
       </div>
